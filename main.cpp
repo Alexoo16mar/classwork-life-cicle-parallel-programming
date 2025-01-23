@@ -16,9 +16,9 @@ void vegetable_chopper(const char* name) {
     printf("%s chopped %u vegetables.\n", name, personal_count);
 }
 
-std::mutex chop_mutex;           // Mutex para sincronizar el acceso
-unsigned int shared_count = 0;   // Contador compartido
-const unsigned int total_vegetables = 20; // Total de vegetales a cortar
+std::mutex chop_mutex;
+unsigned int shared_count = 0;
+const unsigned int total_vegetables = 20;
 
 void vegetable_chopper2(const char* name) {
     unsigned int personal_count = 0;
@@ -27,14 +27,13 @@ void vegetable_chopper2(const char* name) {
         {
             std::lock_guard<std::mutex> lock(chop_mutex);
             if (!chopping) {
-                chopping = false; // Detenemos el bucle si ya se cortaron todos los vegetales
+                chopping = false;
                 break;
             }
             shared_count++;
             personal_count++;
             //std::cout << name << " chopped vegetable " << shared_count << std::endl;
         }
-        // Simula tiempo de trabajo para cortar un vegetal
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
     std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -65,8 +64,8 @@ void say_hello() {
             std::lock_guard<std::mutex> lock(mtx);
             helloDone = true;
         }
-        cv.notify_one(); // Notifica al otro hilo que ya se dijo "hello"
-        std::this_thread::sleep_for(std::chrono::milliseconds(500)); // Espera un poco antes de volver a decir "hello"
+        cv.notify_one();
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
 }
 
