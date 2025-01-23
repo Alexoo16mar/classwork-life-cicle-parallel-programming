@@ -1,0 +1,3 @@
+C:/Users/Alexoo/CLionProjects/Sesion4/cmake-build-debug/CMakeFiles/Sesion4.dir
+C:/Users/Alexoo/CLionProjects/Sesion4/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Alexoo/CLionProjects/Sesion4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
